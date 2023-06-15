@@ -33,9 +33,9 @@
     
     <td>
         @if($task->status == '0')
-        <button class="btn btn-danger">{{ "Pending"  }}</button>
+        <button class="btn btn-{{ $task->due_date < date('Y-m-d') ? 'danger' : 'success' }} ">{{ "Pending"  }}</button>
         @elseif($task->status == '1')
-        <button class="btn btn-danger">{{  "Progress" }}</button>
+        <button class="btn btn-{{ $task->due_date < date('Y-m-d') ? 'danger' : 'success' }}">{{  "Progress" }}</button>
         @else
         <button class="btn btn-success">
             {{ "Completed" }}
